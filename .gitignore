@@ -3,6 +3,11 @@
 **/debug/
 **/target/
 
+# Ignore wasm modules
+
+**/*.wasm
+**/*.bin
+
 # Node dependencies from https://github.com/github/gitignore/blob/main/Node.gitignore
 
 # Logs
