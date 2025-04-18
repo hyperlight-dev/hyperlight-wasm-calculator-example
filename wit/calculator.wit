@@ -7,3 +7,11 @@ interface add {
 world adder {
     export add;
 }
+
+interface subtract {
+    subtract: func(x: u32, y: u32) -> u32;
+}
+
+world subtractor {
+    export subtract;
+}

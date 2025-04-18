@@ -1,0 +1,9 @@
+{
+    "type": "module",
+    "devDependencies": {
+        "@bytecodealliance/jco": "^1.10.2"
+    },
+    "scripts": {
+        "build:component": "jco componentize --wit ../../wit --world-name subtractor subtractor.js -d all -o subtractor.wasm"
+    }
+}
