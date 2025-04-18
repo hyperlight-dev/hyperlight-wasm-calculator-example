@@ -6,3 +6,6 @@ init-subtractor:
 
 build-subtractor:
   cd components/subtractor && npm run build:component
+
+build-calculator:
+  cd components/calculator && cargo component build

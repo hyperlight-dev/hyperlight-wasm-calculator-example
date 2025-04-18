@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "components/adder/Cargo.toml",
+        "components/calculator/Cargo.toml"
+    ]
+}
