@@ -5,8 +5,9 @@
 
 # Ignore wasm modules
 
-**/*.wasm
 **/*.bin
+**/*.wasm
+**/*.wat
 
 # Node dependencies from https://github.com/github/gitignore/blob/main/Node.gitignore
 
