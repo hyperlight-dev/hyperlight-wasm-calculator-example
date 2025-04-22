@@ -21,7 +21,7 @@ interface calculate {
         add,
         subtract,
     }
-    eval-expression: func(op: op, x:u32, y:u32) -> u32;
+    evalexpression: func(op: op, x:u32, y:u32) -> u32;
 }
 
 world calculator {

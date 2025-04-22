@@ -102,13 +102,13 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_eval_expression_cabi<T: Guest>(
+                pub unsafe fn _export_evalexpression_cabi<T: Guest>(
                     arg0: i32,
                     arg1: i32,
                     arg2: i32,
                 ) -> i32 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let result0 = T::eval_expression(
+                    let result0 = T::evalexpression(
                         Op::_lift(arg0 as u8),
                         arg1 as u32,
                         arg2 as u32,
@@ -116,16 +116,16 @@ pub mod exports {
                     _rt::as_i32(result0)
                 }
                 pub trait Guest {
-                    fn eval_expression(op: Op, x: u32, y: u32) -> u32;
+                    fn evalexpression(op: Op, x: u32, y: u32) -> u32;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_hyperlight_wasm_examples_calculator_calculate_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[unsafe (export_name =
-                        "hyperlight-wasm-examples:calculator/calculate#eval-expression")]
-                        unsafe extern "C" fn export_eval_expression(arg0 : i32, arg1 :
+                        "hyperlight-wasm-examples:calculator/calculate#evalexpression")]
+                        unsafe extern "C" fn export_evalexpression(arg0 : i32, arg1 :
                         i32, arg2 : i32,) -> i32 { unsafe { $($path_to_types)*::
-                        _export_eval_expression_cabi::<$ty > (arg0, arg1, arg2) } } };
+                        _export_evalexpression_cabi::<$ty > (arg0, arg1, arg2) } } };
                     };
                 }
                 #[doc(hidden)]
@@ -238,13 +238,13 @@ pub(crate) use __export_calculator_impl as export;
 )]
 #[doc(hidden)]
 #[allow(clippy::octal_escapes)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 440] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xb7\x02\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 439] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xb6\x02\x01A\x02\x01\
 A\x06\x01B\x02\x01@\x02\x01xy\x01yy\0y\x04\0\x03add\x01\0\x03\0'hyperlight-wasm-\
 examples:calculator/add\x05\0\x01B\x02\x01@\x02\x01xy\x01yy\0y\x04\0\x08subtract\
 \x01\0\x03\0,hyperlight-wasm-examples:calculator/subtract\x05\x01\x01B\x04\x01m\x02\
-\x03add\x08subtract\x04\0\x02op\x03\0\0\x01@\x03\x02op\x01\x01xy\x01yy\0y\x04\0\x0f\
-eval-expression\x01\x02\x04\0-hyperlight-wasm-examples:calculator/calculate\x05\x02\
+\x03add\x08subtract\x04\0\x02op\x03\0\0\x01@\x03\x02op\x01\x01xy\x01yy\0y\x04\0\x0e\
+evalexpression\x01\x02\x04\0-hyperlight-wasm-examples:calculator/calculate\x05\x02\
 \x04\0.hyperlight-wasm-examples:calculator/calculator\x04\0\x0b\x10\x01\0\x0acal\
 culator\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.22\
 7.1\x10wit-bindgen-rust\x060.41.0";
