@@ -1,13 +1,20 @@
 package hyperlight-wasm-examples:calculator;
 
+// In this example multiply will be implemented as a hyperlight host function.
+interface multiply {
+    multiply: func(x: u32, y: u32) -> u32;
+}
+
 interface calculate {
     enum op {
         add,
         subtract,
+        multiply,
     }
     evalexpression: func(op: op, x:u32, y:u32) -> u32;
 }
 
 world calculator {
     export calculate;
+    import multiply;
 }

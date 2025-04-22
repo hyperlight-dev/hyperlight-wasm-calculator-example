@@ -4,6 +4,7 @@ use bindings::exports::hyperlight_wasm_examples::calculator::calculate::{Guest, 
 // Bring imported functions from other components into scope
 use bindings::hyperlight_wasm_examples::calculator::add::add;
 use bindings::hyperlight_wasm_examples::calculator::subtract::subtract;
+use bindings::hyperlight_wasm_examples::calculator::multiply::multiply;
 
 struct Component;
 
@@ -12,6 +13,7 @@ impl Guest for Component {
         match op {
             Op::Add => add(x,y),
             Op::Subtract => subtract(x, y),
+            Op::Multiply => multiply(x, y),
         }
     }
 }

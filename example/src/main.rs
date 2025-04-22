@@ -10,7 +10,17 @@ use bindings::hyperlight_wasm_examples::calculator::Calculate;
 mod state;
 use state::MyState;
 
+impl bindings::hyperlight_wasm_examples::calculator::Multiply for MyState {
+    fn r#multiply(&mut self, r#x: u32, r#y: u32) -> u32 {
+        r#x * r#y
+    }
+}
+
 impl bindings::hyperlight_wasm_examples::calculator::CalculatorImports for MyState {
+    type Multiply = MyState;
+    fn r#multiply(&mut self) -> impl ::core::borrow::BorrowMut<Self::Multiply> {
+        self
+    }
 }
 
 fn main() {
@@ -42,4 +52,6 @@ fn main() {
     println!("13 - 5 = {r}");
     let r = calc_inst.evalexpression(Op::Add, 6, 7);
     println!("6 + 7 = {r}");
+    let r = calc_inst.evalexpression(Op::Multiply, 4,3);
+    println!("4 * 3 = {r}");
 }

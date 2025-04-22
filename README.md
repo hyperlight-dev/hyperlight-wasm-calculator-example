@@ -6,6 +6,7 @@ The [calculator](./wit/calculator.wit) itself is comprised of three wasm compone
   - `calculator` - the main component that implements the calculator interface (written in Rust)
   - `adder` - a component that implements the addition operation (written in Rust)
   - `subtractor` - a component that implements the subtraction operation (written in Javascript)
+  - Additionally there is a `multiply` operator that is implemented as a hyperlight host function.
 
 The [example](./example/) program loads the composed calculator/wasm component into a hyperlight-sandbox along with a wasm runtime and invokes functions as hyperlight-guest calls.
 

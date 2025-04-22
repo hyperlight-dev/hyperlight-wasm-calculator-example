@@ -12,6 +12,10 @@ interface subtract {
     subtract: func(x: u32, y: u32) -> u32;
 }
 
+interface multiply {
+    multiply: func(x: u32, y: u32) -> u32;
+}
+
 world subtractor {
     export subtract;
 }
@@ -20,6 +24,7 @@ interface calculate {
     enum op {
         add,
         subtract,
+        multiply,
     }
     evalexpression: func(op: op, x:u32, y:u32) -> u32;
 }
@@ -28,4 +33,5 @@ world calculator {
     export calculate;
     import add;
     import subtract;
+    import multiply;
 }

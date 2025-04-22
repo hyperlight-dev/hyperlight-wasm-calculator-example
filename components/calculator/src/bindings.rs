@@ -57,6 +57,32 @@ pub mod hyperlight_wasm_examples {
                 }
             }
         }
+        #[allow(dead_code, async_fn_in_trait, unused_imports, clippy::all)]
+        pub mod multiply {
+            #[used]
+            #[doc(hidden)]
+            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            use super::super::super::_rt;
+            #[allow(unused_unsafe, clippy::all)]
+            pub fn multiply(x: u32, y: u32) -> u32 {
+                unsafe {
+                    #[cfg(target_arch = "wasm32")]
+                    #[link(
+                        wasm_import_module = "hyperlight-wasm-examples:calculator/multiply"
+                    )]
+                    unsafe extern "C" {
+                        #[link_name = "multiply"]
+                        fn wit_import0(_: i32, _: i32) -> i32;
+                    }
+                    #[cfg(not(target_arch = "wasm32"))]
+                    unsafe extern "C" fn wit_import0(_: i32, _: i32) -> i32 {
+                        unreachable!()
+                    }
+                    let ret = unsafe { wit_import0(_rt::as_i32(&x), _rt::as_i32(&y)) };
+                    ret as u32
+                }
+            }
+        }
     }
 }
 #[rustfmt::skip]
@@ -75,6 +101,7 @@ pub mod exports {
                 pub enum Op {
                     Add,
                     Subtract,
+                    Multiply,
                 }
                 impl ::core::fmt::Debug for Op {
                     fn fmt(
@@ -84,6 +111,7 @@ pub mod exports {
                         match self {
                             Op::Add => f.debug_tuple("Op::Add").finish(),
                             Op::Subtract => f.debug_tuple("Op::Subtract").finish(),
+                            Op::Multiply => f.debug_tuple("Op::Multiply").finish(),
                         }
                     }
                 }
@@ -96,6 +124,7 @@ pub mod exports {
                         match val {
                             0 => Op::Add,
                             1 => Op::Subtract,
+                            2 => Op::Multiply,
                             _ => panic!("invalid enum discriminant"),
                         }
                     }
@@ -238,16 +267,18 @@ pub(crate) use __export_calculator_impl as export;
 )]
 #[doc(hidden)]
 #[allow(clippy::octal_escapes)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 439] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xb6\x02\x01A\x02\x01\
-A\x06\x01B\x02\x01@\x02\x01xy\x01yy\0y\x04\0\x03add\x01\0\x03\0'hyperlight-wasm-\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 524] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x8b\x03\x01A\x02\x01\
+A\x08\x01B\x02\x01@\x02\x01xy\x01yy\0y\x04\0\x03add\x01\0\x03\0'hyperlight-wasm-\
 examples:calculator/add\x05\0\x01B\x02\x01@\x02\x01xy\x01yy\0y\x04\0\x08subtract\
-\x01\0\x03\0,hyperlight-wasm-examples:calculator/subtract\x05\x01\x01B\x04\x01m\x02\
-\x03add\x08subtract\x04\0\x02op\x03\0\0\x01@\x03\x02op\x01\x01xy\x01yy\0y\x04\0\x0e\
-evalexpression\x01\x02\x04\0-hyperlight-wasm-examples:calculator/calculate\x05\x02\
-\x04\0.hyperlight-wasm-examples:calculator/calculator\x04\0\x0b\x10\x01\0\x0acal\
-culator\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.22\
-7.1\x10wit-bindgen-rust\x060.41.0";
+\x01\0\x03\0,hyperlight-wasm-examples:calculator/subtract\x05\x01\x01B\x02\x01@\x02\
+\x01xy\x01yy\0y\x04\0\x08multiply\x01\0\x03\0,hyperlight-wasm-examples:calculato\
+r/multiply\x05\x02\x01B\x04\x01m\x03\x03add\x08subtract\x08multiply\x04\0\x02op\x03\
+\0\0\x01@\x03\x02op\x01\x01xy\x01yy\0y\x04\0\x0eevalexpression\x01\x02\x04\0-hyp\
+erlight-wasm-examples:calculator/calculate\x05\x03\x04\0.hyperlight-wasm-example\
+s:calculator/calculator\x04\0\x0b\x10\x01\0\x0acalculator\x03\0\0\0G\x09producer\
+s\x01\x0cprocessed-by\x02\x0dwit-component\x070.227.1\x10wit-bindgen-rust\x060.4\
+1.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {
