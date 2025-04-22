@@ -4,7 +4,7 @@ build-adder:
 init-subtractor:
   cd components/subtractor && npm install 
 
-build-subtractor:
+build-subtractor: init-subtractor
   cd components/subtractor && npm run build:component 
 
 build-calculator:
@@ -22,12 +22,12 @@ build-component: build-adder build-subtractor build-calculator
 compile-wit:
   wasm-tools component wit {{ justfile_directory() }}/example/calculator-composed.wit -w -o {{ justfile_directory() }}/example/calculator-composed-world.wasm
 
-build-example:
+build-example: compile-wit
    cd example && \
      HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
      cargo build
 
-run-example:
+run-example: compile-wit
    cd example && \
      HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
      cargo run
