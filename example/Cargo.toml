@@ -1,0 +1,17 @@
+[package]
+name = "hyperlight-wasm-calculator-example"
+edition = "2021"
+
+[dependencies]
+hyperlight-component-macro = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro" }
+hyperlight-host = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro", default-features = false, features = [ "kvm", "mshv2" ] }
+hyperlight-common = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro" }
+hyperlight-wasm-macro = { git = "https://github.com/hyperlight-dev/hyperlight-wasm", branch = "hyperlight-component-macro" }
+hyperlight-wasm = { git = "https://github.com/hyperlight-dev/hyperlight-wasm", branch = "hyperlight-component-macro" }
+#hyperlight-wasm-macro = { path = "/home/marosset/src/github.com/marosset/hyperlight-wasm/src/hyperlight_wasm_macro" }
+#hyperlight-wasm = { path = "/home/marosset/src/github.com/marosset/hyperlight-wasm/src/hyperlight_wasm" }
+
+[[bin]]
+name = "calculator"
+path = "src/main.rs"
+bench = false # see https://bheisler.github.io/criterion.rs/book/faq.html#cargo-bench-gives-unrecognized-option-errors-for-valid-command-line-options

@@ -1,0 +1,13 @@
+package hyperlight-wasm-examples:calculator;
+
+interface calculate {
+    enum op {
+        add,
+        subtract,
+    }
+    evalexpression: func(op: op, x:u32, y:u32) -> u32;
+}
+
+world calculator {
+    export calculate;
+}

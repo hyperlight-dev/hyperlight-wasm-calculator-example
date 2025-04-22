@@ -19,3 +19,15 @@ build-component: build-adder build-subtractor build-calculator
   # ahead-of-time compile the composed component
   hyperlight-wasm-aot compile --component calculator-composed.wasm ./example/calculator-composed.bin
 
+compile-wit:
+  wasm-tools component wit {{ justfile_directory() }}/example/calculator-composed.wit -w -o {{ justfile_directory() }}/example/calculator-composed-world.wasm
+
+build-example:
+   cd example && \
+     HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
+     cargo build
+
+run-example:
+   cd example && \
+     HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
+     cargo run
