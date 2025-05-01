@@ -19,5 +19,5 @@
 	"runArgs": [
         "--device=/dev/kvm"
     ],
-	"postStartCommand": "bash .devcontainer/setup.sh",
+	"postStartCommand": "bash .devcontainer/setup.sh"
 }
