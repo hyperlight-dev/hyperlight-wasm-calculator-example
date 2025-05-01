@@ -12,7 +12,11 @@ The [example](./example/) program loads the composed calculator/wasm component i
 
 ## Requirements
 
-To build and run this example, you need the following tools installed on your system:
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jsturtevant/hyperlight-wasm-calculator-example/tree/dev-container)
+
+[![Open in VS Code Container](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jsturtevant/hyperlight-wasm-calculator-example)
+
+To build and run this example locally, you need the following tools installed on your system:
 
 - [Rust toolchain](https://www.rust-lang.org/tools/install) including `x86_unknown-none` target
   - https://www.rust-lang.org/tools/install
