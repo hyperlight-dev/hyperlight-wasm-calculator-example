@@ -12,7 +12,7 @@ The [example](./example/) program loads the composed calculator/wasm component i
 
 ## Requirements
 
-[![Open in VS Code Container](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jsturtevant/hyperlight-wasm-calculator-example/tree/dev-container)
+[![Open in VS Code Container](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/jsturtevant/hyperlight-wasm-calculator-example)
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jsturtevant/hyperlight-wasm-calculator-example/tree/dev-container)
 
