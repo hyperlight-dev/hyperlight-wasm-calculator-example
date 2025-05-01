@@ -41,7 +41,7 @@ fn main() {
     let rt = crate::bindings::register_host_functions(&mut sb, state);
     // Initialise the Wasm engine inside the sandbox
     let sb = sb.load_runtime().unwrap();
-    let sb = sb.load_module("calculator-composed.bin").unwrap();
+    let sb = sb.load_module("calculator-composed.bin").expect("missing calculator module. build the components first");
     // Wrap up the sandbox and the resources to get something which
     // we can instantiate and run methods against
     let mut wrapped = bindings::CalculatorSandbox {sb, rt};
