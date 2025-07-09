@@ -30,9 +30,7 @@ fn main() {
         hyperlight_wasm::SandboxBuilder::new()
         .with_guest_input_buffer_size(70000000)
         .with_guest_heap_size(200000000)
-        .with_guest_panic_context_buffer_size(10000000)
         .with_guest_stack_size(100000000)
-        .with_guest_function_call_max_execution_time_millis(0)
         .build()
         .unwrap();
     // Provide any imports implemented by the host (capturing `state`),

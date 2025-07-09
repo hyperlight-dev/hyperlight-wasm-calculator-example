@@ -24,10 +24,10 @@ compile-wit:
 
 build-example: compile-wit
    cd example && \
-     HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
+     WIT_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
      cargo build
 
 run-example: compile-wit
    cd example && \
-     HYPERLIGHT_WASM_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
+     WIT_WORLD={{ justfile_directory() }}/example/calculator-composed-world.wasm \
      cargo run
