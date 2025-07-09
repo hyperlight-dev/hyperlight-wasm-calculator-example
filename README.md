@@ -21,7 +21,7 @@ To build and run this example, you need the following tools installed on your sy
 - [wac](https://github.com/bytecodealliance/wac?tab=readme-ov-file#installation)
 - [cargo component](https://github.com/bytecodealliance/cargo-component?tab=readme-ov-file#installation)
 - hyperlight-wasm-aot
-  - cargo install --git https://github.com/hyperlight-dev/hyperlight-wasm hyperlight-wasm-aot
+  - cargo install hyperlight-wasm-aot
 - [Just](https://github.com/casey/just?tab=readme-ov-file#installation)
 
 ## Running the example
